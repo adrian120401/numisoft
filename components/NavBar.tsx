@@ -24,9 +24,9 @@ const NavBar: React.FC = () => {
         },
     ];
     return (
-        <nav className="flex items-center justify-between p-4 bg-stone-300 shadow-lg">
+        <nav className="flex items-center justify-between p-4 shadow-lg">
             <div className="flex items-center">
-                <Image src="/NumiSoftLogo.png" alt="Logo" width={40} height={40} className="mr-2" />
+                <Image src="/NumiSoftLogo.png" alt="Logo" width={40} height={40} className="mr-2 w-12 h-12" />
                 <h1 className="text-xl font-semibold">NumiSoft</h1>
             </div>
             <div className="flex items-center space-x-4">

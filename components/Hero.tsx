@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="flex flex-col justify-center">
-                        <h1 className="text-4xl font-bold text-gray-800 mb-4">
+                        <h1 className="text-4xl font-bold mb-4">
                             Lleva tu negocio al proximo nivel
                         </h1>
                         <p className="text-gray-600 mb-4">
@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
                     </div>
                     <div>
                         <Image
-                            src="/hero.svg"
+                            src="/hero2.svg"
                             width={100}
                             height={100}
                             alt="Imagen del Hero"

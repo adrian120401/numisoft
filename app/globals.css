@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-
+  --primary-color: rgb(75, 85, 99);
 }
 
 body {
-
+  color: var(--primary-color);
 }
 
 @layer utilities {

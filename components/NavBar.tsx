@@ -67,7 +67,7 @@ const NavBar: React.FC = () => {
                     className="text-gray-400 hover:text-white focus:outline-none focus:text-white"
                     onClick={toggleMenu}
                 >
-                    <FontAwesomeIcon icon={faBars} size="lg" />
+                    <FontAwesomeIcon icon={faBars} size="lg" color='gray'/>
                 </button>
             </div>
             {isMenuOpen && (
@@ -77,7 +77,7 @@ const NavBar: React.FC = () => {
                         className="text-gray-400 hover:text-white focus:outline-none focus:text-white text-end mr-4 mt-7"
                         onClick={toggleMenu}
                     >
-                        <FontAwesomeIcon icon={faXmark} size="lg" />
+                        <FontAwesomeIcon icon={faXmark} size="lg" color='gray'/>
                     </button>
                     <div className="px-2 pt-2 pb-3 mt-4 space-y-2 sm:px-3 flex flex-col">
                         {options.map((option) => (

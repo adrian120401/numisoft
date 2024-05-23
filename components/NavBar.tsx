@@ -38,13 +38,13 @@ const NavBar: React.FC = () => {
         <nav className="flex items-center justify-between p-4 shadow-lg">
             <div className="flex items-center">
                 <Image
-                    src="/NumiSoftLogo.png"
+                    src="/numisoft-logo.png"
                     alt="Logo"
                     width={40}
                     height={40}
                     className="mr-2 w-12 h-12"
                 />
-                <h1 className="text-xl font-semibold">NumiSoft</h1>
+                <h1 className="text-xl font-semibold">numisoft</h1>
             </div>
             <div className="items-center space-x-4 hidden md:flex">
                 {options.map((option) => (
@@ -67,11 +67,7 @@ const NavBar: React.FC = () => {
                     className="text-gray-400 hover:text-white focus:outline-none focus:text-white"
                     onClick={toggleMenu}
                 >
-                    {isMenuOpen ? (
-                        <FontAwesomeIcon icon={faXmark} size="lg" />
-                    ) : (
-                        <FontAwesomeIcon icon={faBars} size="lg" />
-                    )}
+                    <FontAwesomeIcon icon={faBars} size="lg" />
                 </button>
             </div>
             {isMenuOpen && (

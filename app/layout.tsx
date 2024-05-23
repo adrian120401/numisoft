@@ -6,8 +6,8 @@ import NavBar from "@/components/NavBar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "NumiSoft",
-  description: "NumiSoft is a software development company.",
+  title: "numisoft",
+  description: "numisoft is a software development company.",
 };
 
 export default function RootLayout({

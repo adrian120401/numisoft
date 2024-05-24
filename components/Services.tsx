@@ -1,11 +1,28 @@
 'use client';
 import CardService from './CardService';
 import { Service } from '@/types/Service';
-import Carousel from 'react-spring-3d-carousel';
 import { config } from 'react-spring';
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import dynamic from 'next/dynamic';
+import { ComponentType } from 'react';
+
+interface CarouselProps {
+  slides: any[];
+  goToSlide: number;
+  offsetRadius: number;
+  showNavigation: boolean;
+  animationConfig: any;
+}
+
+const Carousel: ComponentType<CarouselProps> = dynamic(
+  () =>
+    import('react-spring-3d-carousel').then(
+      (mod) => mod.default || mod
+    ) as any,
+  { ssr: false }
+);
 
 const services: Service[] = [
     {
@@ -27,6 +44,7 @@ const services: Service[] = [
         icon: '/services/web.svg',
     },
 ];
+
 const Services: React.FC = () => {
     const [slider, setSlider] = useState({
         goToSlide: 0,

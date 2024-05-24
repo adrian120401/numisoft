@@ -9,19 +9,16 @@ import dynamic from 'next/dynamic';
 import { ComponentType } from 'react';
 
 interface CarouselProps {
-  slides: any[];
-  goToSlide: number;
-  offsetRadius: number;
-  showNavigation: boolean;
-  animationConfig: any;
+    slides: any[];
+    goToSlide: number;
+    offsetRadius: number;
+    showNavigation: boolean;
+    animationConfig: any;
 }
 
 const Carousel: ComponentType<CarouselProps> = dynamic(
-  () =>
-    import('react-spring-3d-carousel').then(
-      (mod) => mod.default || mod
-    ) as any,
-  { ssr: false }
+    () => import('react-spring-3d-carousel').then((mod) => mod.default || mod) as any,
+    { ssr: false }
 );
 
 const services: Service[] = [
@@ -89,13 +86,15 @@ const Services: React.FC = () => {
         <div className="flex flex-col items-center py-8">
             <h2 className="text-2xl font-bold mb-4 text-center">Servicios que ofrecemos</h2>
             <div className="flex flex-col sm:h-96 h-[30rem] w-[90%]">
-                <Carousel
-                    slides={slides}
-                    goToSlide={slider.goToSlide}
-                    offsetRadius={slider.offsetRadius}
-                    animationConfig={slider.config}
-                    showNavigation={slider.showNavigation}
-                />
+                <div className='h-full w-full py-8'>
+                    <Carousel
+                        slides={slides}
+                        goToSlide={slider.goToSlide}
+                        offsetRadius={slider.offsetRadius}
+                        animationConfig={slider.config}
+                        showNavigation={slider.showNavigation}
+                    />
+                </div>
                 <div className="text-center">
                     <button
                         onClick={() => {

@@ -15,3 +15,16 @@ body {
     text-wrap: balance;
   }
 }
+
+.bg-light {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -10;
+  height: 100%;
+  width: 100%;
+  background: white;
+  background: radial-gradient(125% 125% at 50% 10%, #fff 40%, #b0c4de 100%);
+}

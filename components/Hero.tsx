@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Hero: React.FC = () => {
     return (
-        <div className="flex items-center justify-center h-[calc(100vh-5rem)] bg-gray-100">
+        <div className="flex items-center justify-center h-[calc(100vh-5rem)]">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="flex flex-col justify-center">

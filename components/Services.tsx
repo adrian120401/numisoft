@@ -83,7 +83,7 @@ const Services: React.FC = () => {
     }));
 
     return (
-        <div className="flex flex-col items-center py-8">
+        <div className="flex flex-col items-center py-8 bg-gray-100 bg-opacity-50">
             <h2 className="text-2xl font-bold mb-4 text-center">Servicios que ofrecemos</h2>
             <div className="flex flex-col sm:h-96 h-[30rem] w-[90%]">
                 <div className='h-full w-full py-8'>

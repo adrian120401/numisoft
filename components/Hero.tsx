@@ -3,21 +3,21 @@ import Link from 'next/link';
 
 const Hero: React.FC = () => {
     return (
-        <div className="flex items-center justify-center h-[calc(100vh-5rem)]">
+        <div className="flex items-center justify-center h-screen">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="flex flex-col justify-center">
-                        <h1 className="text-5xl font-bold mb-4">
+                        <h1 className="text-4xl sm:text-5xl font-bold mb-4">
                             Lleva tu negocio al próximo nivel
                         </h1>
-                        <p className="text-gray-600 text-xl mb-4">
+                        <p className="text-gray-600 text-lg sm:text-xl mb-4">
                             Te aydudamos a mejorar el rendimiento y los procesos de tu negocio con
                             software
                         </p>
                         <div className="mt-8">
                             <Link
                                 href={'/contract'}
-                                className="px-4 py-3 bg-slate-700 text-white rounded hover:bg-slate-800 text-2xl"
+                                className="px-4 py-3 bg-slate-700 text-white rounded hover:bg-slate-800 text-xl sm:text-2xl"
                             >
                                 Comenzar!
                             </Link>

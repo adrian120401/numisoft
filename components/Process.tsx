@@ -27,7 +27,7 @@ const Process: React.FC = () => {
     return (
         <div className="flex flex-col justify-center py-8">
             <h2 className="text-2xl font-bold mb-4 text-center">Nuesto proceso</h2>
-            <div className="grid px-4 sm:grid-cols-4 gap-4 py-8 max-w-7xl">
+            <div className="grid px-4 sm:grid-cols-4 gap-4 py-8 max-w-7xl mx-auto">
                 {steps.map((step, index) => (
                     <div key={index} className="text-center flex flex-col items-center">
                         <Image src={step.icon} width={50} height={50} alt="Icono del servicio" />

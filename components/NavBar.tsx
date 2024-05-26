@@ -35,7 +35,7 @@ const NavBar: React.FC = () => {
     };
 
     return (
-        <nav className="flex items-center justify-between p-4 shadow-lg">
+        <nav className="fixed w-full z-10 bg-gray-100 flex items-center justify-between p-4 shadow-lg">
             <div className="flex items-center">
                 <Image
                     src="/numisoft-logo.png"

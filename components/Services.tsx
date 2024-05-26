@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import dynamic from 'next/dynamic';
 import { ComponentType } from 'react';
+/* import { useDrag } from 'react-use-gesture'
+ */
 
 interface CarouselProps {
     slides: any[];
@@ -32,13 +34,13 @@ const services: Service[] = [
         title: 'Soluciones Empresariales',
         description:
             'Desarrollamos software a medida para satisfacer las necesidades específicas de tu negocio. Desde sistemas de gestión hasta aplicaciones móviles, nuestras soluciones empresariales están diseñadas para mejorar la eficiencia operativa, aumentar la productividad y facilitar la toma de decisiones informadas.',
-        icon: '/services/web.svg',
+        icon: '/services/business.svg',
     },
     {
         title: 'Aplicaciones Móviles',
         description:
             'Creamos aplicaciones móviles nativas e híbridas que ofrecen una experiencia de usuario excepcional en dispositivos iOS y Android. Nuestro equipo de desarrolladores de aplicaciones móviles trabaja en estrecha colaboración contigo para garantizar que tu aplicación cumpla con tus expectativas y las de tus usuarios.',
-        icon: '/services/web.svg',
+        icon: '/services/apps.svg',
     },
 ];
 
@@ -82,11 +84,20 @@ const Services: React.FC = () => {
         ),
     }));
 
+/*     const bind = useDrag(({ direction: [xDir], down, velocity }) => {
+        if (down && velocity > 0.4) {
+          setSlider(prevSlider => ({
+            ...prevSlider,
+            goToSlide: prevSlider.goToSlide + (xDir > 0 ? -1 : 1),
+          }))
+        }
+      }) */
+
     return (
-        <div className="flex flex-col items-center py-8 bg-gray-100 bg-opacity-50">
+        <div className="flex flex-col items-center py-8">
             <h2 className="text-2xl font-bold mb-4 text-center">Servicios que ofrecemos</h2>
             <div className="flex flex-col sm:h-96 h-[30rem] w-[90%]">
-                <div className='h-full w-full py-8'>
+                <div className='h-full w-full py-8' /* {...bind()} */>
                     <Carousel
                         slides={slides}
                         goToSlide={slider.goToSlide}

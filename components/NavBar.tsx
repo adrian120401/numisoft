@@ -1,41 +1,59 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faBars } from '@fortawesome/free-solid-svg-icons';
 
+const options = [
+    {
+        name: 'Servicios',
+        url: '/services',
+    },
+    {
+        name: 'Blog',
+        url: '/blog',
+    },
+    {
+        name: 'Trabajos',
+        url: '/works',
+    },
+    {
+        name: 'Sobre nosotros',
+        url: '/about-us',
+    },
+    {
+        name: 'Contacto',
+        url: '/contact',
+    },
+];
+
 const NavBar: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const options = [
-        {
-            name: 'Servicios',
-            url: '/services',
-        },
-        {
-            name: 'Blog',
-            url: '/blog',
-        },
-        {
-            name: 'Trabajos',
-            url: '/works',
-        },
-        {
-            name: 'Sobre nosotros',
-            url: '/about-us',
-        },
-        {
-            name: 'Contacto',
-            url: '/contact',
-        },
-    ];
+    const [isTop, setIsTop] = useState(true);
+
+    useEffect(() => {
+        const scrollListener = () => {
+            setIsTop(window.scrollY === 0);
+        };
+
+        window.addEventListener('scroll', scrollListener);
+
+        return () => {
+            window.removeEventListener('scroll', scrollListener);
+        };
+    }, []);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
     return (
-        <nav className="fixed w-full z-10 bg-gray-100 flex items-center justify-between p-4 shadow-lg">
+        <nav
+            className={`w-full z-10 bg-gray-100 flex items-center justify-between p-4 shadow-lg ${
+                isTop ? '' : 'fixed top-0'
+            }`}
+        >
             <div className="flex items-center">
                 <Image
                     src="/numisoft-logo.png"
@@ -67,7 +85,7 @@ const NavBar: React.FC = () => {
                     className="text-gray-400 hover:text-white focus:outline-none focus:text-white"
                     onClick={toggleMenu}
                 >
-                    <FontAwesomeIcon icon={faBars} size="lg" color='gray'/>
+                    <FontAwesomeIcon icon={faBars} size="lg" color="gray" />
                 </button>
             </div>
             {isMenuOpen && (
@@ -77,7 +95,7 @@ const NavBar: React.FC = () => {
                         className="text-gray-400 hover:text-white focus:outline-none focus:text-white text-end mr-4 mt-7"
                         onClick={toggleMenu}
                     >
-                        <FontAwesomeIcon icon={faXmark} size="lg" color='gray'/>
+                        <FontAwesomeIcon icon={faXmark} size="lg" color="gray" />
                     </button>
                     <div className="px-2 pt-2 pb-3 mt-4 space-y-2 sm:px-3 flex flex-col">
                         {options.map((option) => (

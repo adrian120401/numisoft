@@ -5,31 +5,31 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faBars } from '@fortawesome/free-solid-svg-icons';
 
+const options = [
+    {
+        name: 'Servicios',
+        url: '/services',
+    },
+    {
+        name: 'Blog',
+        url: '/blog',
+    },
+    {
+        name: 'Trabajos',
+        url: '/works',
+    },
+    {
+        name: 'Sobre nosotros',
+        url: '/about-us',
+    },
+    {
+        name: 'Contacto',
+        url: '/contact',
+    },
+];
+
 const NavBar: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const options = [
-        {
-            name: 'Servicios',
-            url: '/services',
-        },
-        {
-            name: 'Blog',
-            url: '/blog',
-        },
-        {
-            name: 'Trabajos',
-            url: '/works',
-        },
-        {
-            name: 'Sobre nosotros',
-            url: '/about-us',
-        },
-        {
-            name: 'Contacto',
-            url: '/contact',
-        },
-    ];
-    
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -68,7 +68,7 @@ const NavBar: React.FC = () => {
                     className="text-gray-400 hover:text-white focus:outline-none focus:text-white"
                     onClick={toggleMenu}
                 >
-                    <FontAwesomeIcon icon={faBars} size="lg" color='gray'/>
+                    <FontAwesomeIcon icon={faBars} size="lg" color="gray" />
                 </button>
             </div>
             {isMenuOpen && (
@@ -78,7 +78,7 @@ const NavBar: React.FC = () => {
                         className="text-gray-400 hover:text-white focus:outline-none focus:text-white text-end mr-4 mt-7"
                         onClick={toggleMenu}
                     >
-                        <FontAwesomeIcon icon={faXmark} size="lg" color='gray'/>
+                        <FontAwesomeIcon icon={faXmark} size="lg" color="gray" />
                     </button>
                     <div className="px-2 pt-2 pb-3 mt-4 space-y-2 sm:px-3 flex flex-col">
                         {options.map((option) => (

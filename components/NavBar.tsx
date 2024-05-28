@@ -37,7 +37,7 @@ const NavBar: React.FC = () => {
 
     return (
         <nav className="fixed top-0 w-full z-10 bg-gray-100 flex items-center justify-between p-4 shadow-lg">
-            <div className="flex items-center">
+            <Link href={'/'} className="flex items-center">
                 <Image
                     src="/numisoft-logo.png"
                     alt="Logo"
@@ -46,7 +46,7 @@ const NavBar: React.FC = () => {
                     className="mr-2 w-12 h-12"
                 />
                 <h1 className="text-xl font-semibold">numisoft</h1>
-            </div>
+            </Link>
             <div className="items-center space-x-4 hidden md:flex">
                 {options.map((option) => (
                     <Link href={option.url} key={option.name} className="hover:underline">

@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
         <footer className="bg-gray-800 text-white pt-4 px-4 mt-4">
             <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
                 <div className="flex flex-col text-center sm:text-start">
-                    <div className="flex items-center">
+                    <Link href={'/'} className="flex items-center">
                         <Image
                             src="/numisoft-logo.png"
                             alt="Logo"
@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
                             className="mr-2 w-12 h-12"
                         />
                         <h1 className="text-xl font-semibold">numisoft</h1>
-                    </div>
+                    </Link>
                     <div className="flex flex-col sm:flex-row mt-4">
                         {options.map((option) => (
                             <Link

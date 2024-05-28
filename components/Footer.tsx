@@ -27,7 +27,7 @@ const options = [
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-gray-800 text-white pt-4 px-4">
+        <footer className="bg-gray-800 text-white pt-4 px-4 mt-4">
             <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
                 <div className="flex flex-col text-center sm:text-start">
                     <div className="flex items-center">
@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
                         />
                         <h1 className="text-xl font-semibold">numisoft</h1>
                     </div>
-                    <div className="flex flex-col sm:flex-row my-4">
+                    <div className="flex flex-col sm:flex-row mt-4">
                         {options.map((option) => (
                             <Link
                                 href={option.url}
@@ -50,6 +50,14 @@ const Footer: React.FC = () => {
                                 {option.name}
                             </Link>
                         ))}
+                    </div>
+                    <div className="my-8">
+                        <Link
+                            href={'/contract'}
+                            className="px-4 py-3 bg-slate-600 text-white rounded hover:bg-slate-700"
+                        >
+                            Comenzar!
+                        </Link>
                     </div>
                 </div>
                 <div>

@@ -28,3 +28,14 @@ body {
   background: white;
   background: radial-gradient(125% 125% at 50% 10%, #fff 40%, #b0c4de 100%);
 }
+
+.card-project {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.card-project.transitioning {
+  transform: translateX(-100%);
+  opacity: 0;
+}

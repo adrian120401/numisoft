@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const About: React.FC = () => {
     return (
-        <div className="flex flex-col items-center pb-8">
+        <section className="flex flex-col items-center pb-8">
             <h2 className="text-2xl font-bold mb-4 text-center">Sobre nosotros</h2>
             <div className="flex flex-col md:flex-row items-center px-4 md:px-8 lg:px-16 relative max-w-7xl">
                 <div className="mt-2 md:relative md:mr-[-50px] md:bg-gray-100 rounded-tr-3xl p-4">
@@ -17,7 +17,7 @@ const About: React.FC = () => {
                 </div>
                 <Image src="/about.svg" width={400} height={400} alt="Sobre nosotros" />
             </div>
-        </div>
+        </section>
     );
 };
 

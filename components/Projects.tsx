@@ -3,26 +3,7 @@ import CardProject from './CardProject';
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-const projects = [
-    {
-        title: 'La Misión',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consectetur, justo ac lacinia ullamcorper, nunc nisl fringilla lectus, vitae consectetur nunc elit sed nisi.',
-        image: '/projects/lamision-insc.png',
-    },
-    {
-        title: 'La Misión 2',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consectetur, justo ac lacinia ullamcorper, nunc nisl fringilla lectus, vitae consectetur nunc elit sed nisi.',
-        image: '/projects/lamision-insc.png',
-    },
-    {
-        title: 'Cafe CAI',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consectetur, justo ac lacinia ullamcorper, nunc nisl fringilla lectus, vitae consectetur nunc elit sed nisi.',
-        image: '/projects/lamision-insc.png',
-    },
-];
+import { projects } from '@/data/works';
 
 const Project: React.FC = () => {
     const [index, setIndex] = useState(0);
@@ -50,7 +31,7 @@ const Project: React.FC = () => {
     }, [isTransitioning]);
     return (
         <section className="py-8">
-            <h2 className="text-2xl font-bold mb-8 text-center">Proyectos</h2>
+            <h2 className="text-2xl font-bold mb-8 text-center">Algunos trabajos</h2>
             <div className="container mx-auto">
                 <div className="w-full flex">
                     <button className="hover:text-gray-800 text-gray-600 px-4" onClick={handlePrev}>

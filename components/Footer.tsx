@@ -2,28 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
-const options = [
-    {
-        name: 'Servicios',
-        url: '/services',
-    },
-    {
-        name: 'Blog',
-        url: '/blog',
-    },
-    {
-        name: 'Trabajos',
-        url: '/works',
-    },
-    {
-        name: 'Sobre nosotros',
-        url: '/about-us',
-    },
-    {
-        name: 'Contacto',
-        url: '/contact',
-    },
-];
+import { options } from '@/data/navOtions';
 
 const Footer: React.FC = () => {
     return (

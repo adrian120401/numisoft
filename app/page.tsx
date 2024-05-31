@@ -7,7 +7,7 @@ import Contact from '@/components/Contact';
 export default function Home() {
     return (
         <main>
-            <div className="bg-light"></div>{' '}
+            <div className="bg-light"></div>
             <Hero />
             <About />
             <Services />

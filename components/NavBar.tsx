@@ -4,29 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faBars } from '@fortawesome/free-solid-svg-icons';
-
-const options = [
-    {
-        name: 'Servicios',
-        url: '/services',
-    },
-    {
-        name: 'Blog',
-        url: '/blog',
-    },
-    {
-        name: 'Trabajos',
-        url: '/works',
-    },
-    {
-        name: 'Sobre nosotros',
-        url: '/about-us',
-    },
-    {
-        name: 'Contacto',
-        url: '/contact',
-    },
-];
+import { options } from '@/data/navOtions';
 
 const NavBar: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);

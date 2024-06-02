@@ -13,7 +13,6 @@ export default function Works() {
                             title={project.title}
                             description={project.description}
                             image={project.image}
-                            className=""
                         />
                     </div>
                 ))}

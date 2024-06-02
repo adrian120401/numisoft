@@ -1,3 +1,4 @@
+'use client';
 import React, { PropsWithChildren, useCallback, useEffect, useState } from 'react';
 import { EmblaCarouselType } from 'embla-carousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

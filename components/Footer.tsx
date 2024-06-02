@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
                     </div>
                     <div className="my-8">
                         <Link
-                            href={'/contract'}
+                            href={'/contact'}
                             className="px-4 py-3 bg-slate-600 text-white rounded hover:bg-slate-700"
                         >
                             Comenzar!
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
                                     className="mr-2 hover:scale-105"
                                 />
                             </Link>
-                            <Link href={''}>
+                            <Link href={'https://www.facebook.com/numisoft/'} target='_blank'>
                                 <FontAwesomeIcon
                                     icon={faFacebook}
                                     size="lg"

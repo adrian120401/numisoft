@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
                         </p>
                         <div className="mt-8">
                             <Link
-                                href={'/contract'}
+                                href={'/contact'}
                                 className="px-4 py-3 bg-slate-700 text-white rounded hover:bg-slate-800 text-xl sm:text-2xl"
                             >
                                 Comenzar!

@@ -9,6 +9,7 @@ export default function Works() {
                 {projects.map((project, index) => (
                     <div key={index} className="mb-4">
                         <CardProject
+                            id={project.id}
                             title={project.title}
                             description={project.description}
                             image={project.image}

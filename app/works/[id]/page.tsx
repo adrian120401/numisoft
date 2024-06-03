@@ -21,12 +21,12 @@ export default function Work({ params }: PostPageProps) {
     
     if (!project) redirect('/works');
     
-    const img = <Image src={project.image} alt={project.title} width={800} height={400} className='w-full px-8 pb-8'/>;
+    const img = <Image src={project.image} alt={project.title} width={800} height={400} className='w-full md:px-8 pb-8'/>;
 
     const SLIDES = Array.from({ length: 4 }, () => img);
 
     return (
-        <div className="mt-24 mx-auto md:max-w-[80%] px-4">
+        <div className="mt-24 mx-auto md:max-w-[80%] md:px-4">
             <h1 className="text-center text-3xl font-bold mb-4">{project.title}</h1>
             <Carousel infiniteLoop showStatus={false}>
                 {SLIDES}

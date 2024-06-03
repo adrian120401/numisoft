@@ -19,8 +19,8 @@ const Project: React.FC = () => {
     return (
         <section className="py-8">
             <h2 className="text-2xl font-bold mb-8 text-center">Algunos trabajos</h2>
-            <div className="w-full h-full">
-                <Carousel infiniteLoop showStatus={false}>{SLIDES}</Carousel>
+            <div className="w-full max-h-96">
+                <Carousel infiniteLoop showStatus={false} showIndicators={false}>{SLIDES}</Carousel>
             </div>
         </section>
     );

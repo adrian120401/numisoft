@@ -17,7 +17,7 @@ const CardProject: React.FC<CardProjectProps> = ({ id, title, description, image
                     <div className="font-bold text-xl mb-2">{title}</div>
                     <p className="text-gray-700 text-base">{description}</p>
                 </div>
-                <div className="px-6 py-4">
+                <div className="px-6 py-4 text-end">
                     <Link href={`/works/${id}`} className="text-blue-500 font-bold hover:underline">
                         Mostrar más ...
                     </Link>

@@ -39,3 +39,22 @@ body {
   transform: translateX(-100%);
   opacity: 0;
 }
+
+.carousel.carousel-slider .control-arrow {
+  padding-bottom: 2rem !important;
+}
+.carousel.carousel-slider .control-arrow:hover{
+  background: none !important;
+}
+
+.carousel .control-next.control-arrow:before{
+  border-left: 8px solid var(--primary-color) !important;
+}
+
+.carousel .control-prev.control-arrow:before{
+  border-right: 8px solid var(--primary-color) !important;
+}
+
+.carousel .control-dots .dot {
+  background: var(--primary-color) !important;
+}

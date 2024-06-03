@@ -6,7 +6,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const Project: React.FC = () => {
     const SLIDES = projects.map((project, index) => (
-        <div key={project.id} className="px-8 pb-8 text-start">
+        <div key={project.id} className="px-8 text-start">
             <CardProject
                 id={project.id}
                 title={project.title}
@@ -19,7 +19,7 @@ const Project: React.FC = () => {
     return (
         <section className="py-8">
             <h2 className="text-2xl font-bold mb-8 text-center">Algunos trabajos</h2>
-            <div className="w-full max-h-96">
+            <div className="w-full max-h-96 px-4">
                 <Carousel infiniteLoop showStatus={false} showIndicators={false}>{SLIDES}</Carousel>
             </div>
         </section>

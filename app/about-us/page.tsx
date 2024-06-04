@@ -12,7 +12,7 @@ export default function About() {
                 impulsar el crecimiento y la eficiencia de cada empresa mediante la tecnología. Aquí
                 hay más detalles sobre nuestra visión y valores:
             </p>
-            <ul className="text-lg list-disc px-8 md:px-16 text-start mt-2">
+            <ul className="text-lg list-disc px-8 md:px-16 mt-2">
                 <li>
                     Innovación Constante: Creemos que la tecnología es un motor de cambio. Por eso,
                     nos mantenemos al día con las últimas tendencias y herramientas para ofrecer

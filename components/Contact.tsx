@@ -1,16 +1,29 @@
 'use client';
 import Image from 'next/image';
 import { useState } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 
-const Contact: React.FC  = () => {
+const Contact: React.FC = () => {
     const [method, setMethod] = useState('email');
+
+    const [ref, inView] = useInView({
+        triggerOnce: true,
+        threshold: 0.08,
+    });
 
     const handleMethodChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setMethod(event.target.value);
     };
 
     return (
-        <section className="flex flex-col items-center justify-center py-8 px-4">
+        <motion.section
+            ref={ref}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 50 }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col items-center justify-center py-8 px-4"
+        >
             <h2 className="text-2xl font-bold mb-4 text-center">Contacto</h2>
             <div className="flex flex-col md:flex-row relative">
                 <Image
@@ -133,7 +146,7 @@ const Contact: React.FC  = () => {
                     </div>
                 </form>
             </div>
-        </section>
+        </motion.section>
     );
 };
 

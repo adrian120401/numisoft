@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -60,7 +60,12 @@ const NavBar: React.FC = () => {
                     </button>
                     <div className="px-2 pt-2 pb-3 mt-4 space-y-2 sm:px-3 flex flex-col">
                         {options.map((option) => (
-                            <Link key={option.name} href={option.url} className="text-blue-ford">
+                            <Link
+                                key={option.name}
+                                href={option.url}
+                                onClick={() => setTimeout(() =>setIsMenuOpen(false), 100)}
+                                className="text-blue-ford"
+                            >
                                 {option.name}
                             </Link>
                         ))}

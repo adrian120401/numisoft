@@ -4,9 +4,9 @@ interface LayoutProps {
 
 const SubPageLayout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <main>
+    <section>
       {children}
-    </main>
+    </section>
   );
 };
 

@@ -26,7 +26,7 @@ export default function Work({ params }: PostPageProps) {
     ));
 
     return (
-        <div className="mt-24 mx-auto md:max-w-[80%] md:px-4">
+        <div className="mt-24 mx-auto md:max-w-[80%] md:px-4 pb-4">
             <h1 className="text-center text-3xl font-bold mb-4">{project.title}</h1>
             <p className="text-center text-lg mb-4">{project.description}</p>
             <Carousel infiniteLoop showStatus={false}>

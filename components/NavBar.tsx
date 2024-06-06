@@ -1,11 +1,11 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faBars } from '@fortawesome/free-solid-svg-icons';
 import { options } from '@/data/navOtions';
-
+import { motion } from 'framer-motion';
 const NavBar: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -50,7 +50,12 @@ const NavBar: React.FC = () => {
                 </button>
             </div>
             {isMenuOpen && (
-                <div className="md:hidden flex flex-col absolute w-screen h-screen top-0 left-0 bg-white text-center">
+                <motion.div
+                    initial={{ y: '-100vh' }}
+                    animate={{ y: 0 }}
+                    transition={{ type: 'easeInOut', duration: 0.5 }}
+                    className="md:hidden flex flex-col absolute w-screen h-screen top-0 left-0 bg-white text-center"
+                >
                     <button
                         type="button"
                         className="text-gray-400 hover:text-white focus:outline-none focus:text-white text-end mr-4 mt-7"
@@ -63,7 +68,7 @@ const NavBar: React.FC = () => {
                             <Link
                                 key={option.name}
                                 href={option.url}
-                                onClick={() => setTimeout(() =>setIsMenuOpen(false), 100)}
+                                onClick={() => setTimeout(() => setIsMenuOpen(false), 100)}
                                 className="text-blue-ford"
                             >
                                 {option.name}
@@ -78,7 +83,7 @@ const NavBar: React.FC = () => {
                             Comenzar!
                         </Link>
                     </div>
-                </div>
+                </motion.div>
             )}
         </nav>
     );

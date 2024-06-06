@@ -42,10 +42,10 @@ const Footer: React.FC = () => {
                 <div>
                     <div className="flex flex-col items-center sm:items-start">
                         <p className="sm:mr-4 ">Teléfono: 092833080</p>
-                        <p className="sm:mr-4">Email: numisoft@gmail.com</p>
+                        <p className="sm:mr-4">Email: numisoft01@gmail.com</p>
                         <p className="sm:mt-2">Seguinos</p>
                         <div className="flex items-center mt-2">
-                            <Link href={''}>
+                            <Link href={'https://www.instagram.com/numisoft_'}>
                                 <FontAwesomeIcon
                                     icon={faInstagram}
                                     size="lg"

@@ -53,7 +53,7 @@ export default function About() {
             </p>
             <h3 className="text-xl font-semibold mt-4 text-center">Seguinos en nuestras redes:</h3>
             <div className="flex items-center mt-2 mb-4">
-                <Link href={''} className="flex flex-col hover:underline hover:scale-105 mr-2">
+                <Link href={'https://www.instagram.com/numisoft_'} className="flex flex-col hover:underline hover:scale-105 mr-2">
                     <FontAwesomeIcon icon={faInstagram} size="2x" />
                     Instagram
                 </Link>

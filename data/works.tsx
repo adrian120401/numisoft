@@ -30,16 +30,6 @@ const LaMisionContent = () => (
             <li><strong>React-Leaflet:</strong> Proporciona una experiencia de mapeo dinámica para la navegación y exploración de las rutas de la carrera.</li>
             <li><strong>Base de datos MySQL:</strong> Gestiona de manera eficiente la información crucial sobre los corredores, rutas y detalles de la carrera, garantizando un almacenamiento de datos robusto y seguro.</li>
         </ul>
-
-        <h3 className="text-xl font-semibold mt-8 mb-2">¿Por qué Elegirnos?</h3>
-        <p>
-            Fui seleccionado para desarrollar esta aplicación por mi capacidad para comprender el entorno, mi adaptabilidad para desarrollar una aplicación enfocada en los requisitos del cliente basados en sus tecnologías, y mi entusiasmo por siempre ir más allá del entregable mínimo.
-        </p>
-
-        <h3 className="text-xl font-semibold mt-8 mb-2">Explora el Proyecto</h3>
-        <p>
-            Descubre la sofisticación técnica detrás de La Misión Tracker y observa cómo transforma la experiencia de las carreras de trail. Sumérgete en el código, analiza las tecnologías y aprecia la meticulosa artesanía que define La Misión Tracker.
-        </p>
     </div>
 );
 
@@ -50,7 +40,7 @@ export const projects: Project[] = [
         description:
         'Plataforma interactiva para el seguimiento y la visualización de la carrera La Misión en Argentina, ofreciendo una experiencia de usuario dinámica y envolvente.',
         image: '/projects/lamision-insc.png',
-        images: ['/projects/lamision-insc.png'],
+        images: ['/projects/lamision.png'],
         content: <LaMisionContent />,
     },
 /*     {

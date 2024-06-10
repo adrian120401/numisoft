@@ -6,7 +6,7 @@ import Project from '@/components/Projects';
 import Contact from '@/components/Contact';
 export default function Home() {
     return (
-        <main>
+        <main className='overflow-x-hidden'>
             <div className="bg-light"></div>
             <Hero />
             <About />

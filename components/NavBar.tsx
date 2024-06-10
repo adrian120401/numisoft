@@ -78,6 +78,7 @@ const NavBar: React.FC = () => {
                     <div className="mt-8">
                         <Link
                             href={'/contact'}
+                            onClick={() => setTimeout(() => setIsMenuOpen(false), 100)}
                             className="px-4 py-3 bg-slate-700 text-white rounded hover:bg-slate-800"
                         >
                             Comenzar!

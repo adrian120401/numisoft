@@ -53,3 +53,7 @@ body {
 .carousel .control-dots .dot {
   background: var(--primary-color) !important;
 }
+
+.carousel img {
+  width: 500px !important;
+}

@@ -67,7 +67,7 @@ const MobileContent = () => (
 
 export const services: Service[] = [
     {
-        title: 'Paginas web',
+        title: 'Páginas web',
         description:
             'Creamos sitios web personalizados y optimizados que reflejan la identidad de tu marca y mejoran la experiencia del usuario. Nuestro enfoque se centra en el diseño responsive, la funcionalidad intuitiva y la optimización SEO para asegurar que tu presencia en línea sea atractiva y efectiva.',
         icon: '/services/web.svg',

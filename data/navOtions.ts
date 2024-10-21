@@ -8,10 +8,10 @@ export const options: Option[] = [
         name: 'Servicios',
         url: '/services',
     },
-    {
+/*     {
         name: 'Blog',
         url: '/blog',
-    },
+    }, */
     {
         name: 'Trabajos',
         url: '/works',

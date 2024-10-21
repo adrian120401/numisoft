@@ -1,10 +1,9 @@
 'use client';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
-import { useInView } from 'react-intersection-observer';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { Toaster, toast } from 'react-hot-toast';
+import { motion, useInView } from 'framer-motion';
 
 const PUBLIC_KEY: string = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string;
 const SERVICE_ID: string = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string;
@@ -17,7 +16,12 @@ interface ContactData {
     phone: string;
     message: string;
 }
-const Contact: React.FC = () => {
+
+interface ContactProps {
+    useMotion?: boolean;
+}
+
+const Contact: React.FC<ContactProps> = ({ useMotion = true }) => {
     const [data, setData] = useState<ContactData>({
         name: '',
         subject: '',
@@ -26,15 +30,12 @@ const Contact: React.FC = () => {
         phone: '',
         message: '',
     });
+    const ref = useRef(null);
+    const inView = useInView(ref, { once: true });
 
     useEffect(() => {
         emailjs.init(PUBLIC_KEY);
     }, []);
-
-    const [ref, inView] = useInView({
-        triggerOnce: true,
-        threshold: 0.08,
-    });
 
     const handleMethodChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setData({ ...data, method: event.target.value });
@@ -67,156 +68,176 @@ const Contact: React.FC = () => {
             );
         }
     }
-    return (
-        <motion.section
+
+    const content = (
+        <section
             ref={ref}
+            className={`${useMotion ? '' : 'bg-gradient-to-b from-blue-50 to-white'} py-16`}
+        >
+            <div className="container mx-auto px-4">
+                <Toaster position="top-right" />
+                <h2 className="text-4xl font-bold mb-8 text-center text-blue-800">Contáctanos</h2>
+                <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
+                    <div className="lg:w-1/2">
+                        <Image
+                            src="/about.jpg"
+                            width={600}
+                            height={400}
+                            alt="Imagen de contacto"
+                            className="rounded-lg shadow-xl"
+                        />
+                    </div>
+                    <form
+                        onSubmit={handleSubmit}
+                        className="lg:w-1/2 bg-white rounded-lg shadow-xl p-8"
+                    >
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label
+                                    className="block text-gray-700 text-sm font-bold mb-2"
+                                    htmlFor="name"
+                                >
+                                    Nombre
+                                </label>
+                                <input
+                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    id="name"
+                                    required
+                                    value={data.name}
+                                    onChange={(e) => setData({ ...data, name: e.target.value })}
+                                    type="text"
+                                    placeholder="Tu nombre"
+                                />
+                            </div>
+                            <div>
+                                <label
+                                    className="block text-gray-700 text-sm font-bold mb-2"
+                                    htmlFor="subject"
+                                >
+                                    Asunto
+                                </label>
+                                <input
+                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    id="subject"
+                                    required
+                                    value={data.subject}
+                                    onChange={(e) => setData({ ...data, subject: e.target.value })}
+                                    type="text"
+                                    placeholder="Asunto del mensaje"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-gray-700 text-sm font-bold mb-2">
+                                    Método de contacto
+                                </label>
+                                <div className="flex items-center space-x-4">
+                                    <label className="inline-flex items-center">
+                                        <input
+                                            type="radio"
+                                            className="form-radio text-blue-600"
+                                            name="method"
+                                            value="email"
+                                            checked={data.method === 'email'}
+                                            onChange={handleMethodChange}
+                                        />
+                                        <span className="ml-2">Email</span>
+                                    </label>
+                                    <label className="inline-flex items-center">
+                                        <input
+                                            type="radio"
+                                            className="form-radio text-blue-600"
+                                            name="method"
+                                            value="phone"
+                                            checked={data.method === 'phone'}
+                                            onChange={handleMethodChange}
+                                        />
+                                        <span className="ml-2">Teléfono</span>
+                                    </label>
+                                </div>
+                            </div>
+                            {data.method === 'email' ? (
+                                <div>
+                                    <label
+                                        className="block text-gray-700 text-sm font-bold mb-2"
+                                        htmlFor="email"
+                                    >
+                                        Email
+                                    </label>
+                                    <input
+                                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="email"
+                                        required={data.method === 'email'}
+                                        value={data.email}
+                                        onChange={(e) =>
+                                            setData({ ...data, email: e.target.value })
+                                        }
+                                        type="email"
+                                        placeholder="Tu email"
+                                    />
+                                </div>
+                            ) : (
+                                <div>
+                                    <label
+                                        className="block text-gray-700 text-sm font-bold mb-2"
+                                        htmlFor="phone"
+                                    >
+                                        Teléfono
+                                    </label>
+                                    <input
+                                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="phone"
+                                        required={data.method === 'phone'}
+                                        value={data.phone}
+                                        onChange={(e) =>
+                                            setData({ ...data, phone: e.target.value })
+                                        }
+                                        type="tel"
+                                        placeholder="Tu número de teléfono"
+                                    />
+                                </div>
+                            )}
+                        </div>
+                        <div className="mt-6">
+                            <label
+                                className="block text-gray-700 text-sm font-bold mb-2"
+                                htmlFor="message"
+                            >
+                                Mensaje
+                            </label>
+                            <textarea
+                                className="shadow appearance-none resize-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="message"
+                                required
+                                value={data.message}
+                                onChange={(e) => setData({ ...data, message: e.target.value })}
+                                placeholder="Tu mensaje"
+                                rows={4}
+                            />
+                        </div>
+                        <div className="mt-6">
+                            <button
+                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full transition duration-300"
+                                type="submit"
+                            >
+                                Enviar Mensaje
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    );
+
+    return useMotion ? (
+        <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 50 }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col items-center justify-center py-8 px-4"
         >
-            <Toaster position="top-right" />
-            <h2 className="text-2xl font-bold mb-4 text-center">Contacto</h2>
-            <div className="flex flex-col md:flex-row relative">
-                <Image
-                    src="/about.jpg"
-                    width={600}
-                    height={400}
-                    alt="Imagen de contacto"
-                    className="rounded-ee-3xl"
-                />
-                <form
-                    onSubmit={handleSubmit}
-                    className="my-2 md:relative md:ml-[-100px] md:bg-gray-100 rounded-ss-3xl p-4 grid md:grid-cols-2 gap-4"
-                >
-                    <div className="mb-4">
-                        <label
-                            className="block text-gray-700 text-sm font-bold mb-2"
-                            htmlFor="name"
-                        >
-                            Nombre
-                        </label>
-                        <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="name"
-                            required
-                            value={data.name}
-                            onChange={(e) => setData({ ...data, name: e.target.value })}
-                            type="text"
-                            placeholder="Nombre"
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label
-                            className="block text-gray-700 text-sm font-bold mb-2"
-                            htmlFor="subject"
-                        >
-                            Asunto
-                        </label>
-                        <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="subject"
-                            required
-                            value={data.subject}
-                            onChange={(e) => setData({ ...data, subject: e.target.value })}
-                            type="text"
-                            placeholder="Asunto"
-                        />
-                    </div>
-                    <div className="mb-4">
-                        <label
-                            className="block text-gray-700 text-sm font-bold mb-2"
-                            htmlFor="method"
-                        >
-                            Método de contacto
-                        </label>
-                        <div className="flex items-center">
-                            <input
-                                className="mr-2 leading-tight"
-                                type="radio"
-                                name="method"
-                                value="email"
-                                defaultChecked
-                                onChange={handleMethodChange}
-                            />
-                            <span className="text-sm">Email</span>
-                        </div>
-                        <div className="flex items-center">
-                            <input
-                                className="mr-2 leading-tight"
-                                type="radio"
-                                name="method"
-                                value="phone"
-                                onChange={handleMethodChange}
-                            />
-                            <span className="text-sm">Teléfono</span>
-                        </div>
-                    </div>
-                    {data.method === 'email' ? (
-                        <div className="mb-4">
-                            <label
-                                className="block text-gray-700 text-sm font-bold mb-2"
-                                htmlFor="email"
-                            >
-                                Email
-                            </label>
-                            <input
-                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                id="email"
-                                required={data.method === 'email'}
-                                value={data.email}
-                                onChange={(e) => setData({ ...data, email: e.target.value })}
-                                type="email"
-                                placeholder="Email"
-                            />
-                        </div>
-                    ) : (
-                        <div className="mb-4">
-                            <label
-                                className="block text-gray-700 text-sm font-bold mb-2"
-                                htmlFor="phone"
-                            >
-                                Teléfono
-                            </label>
-                            <input
-                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                id="phone"
-                                required={data.method === 'phone'}
-                                value={data.phone}
-                                onChange={(e) => setData({ ...data, phone: e.target.value })}
-                                type="text"
-                                placeholder="Teléfono"
-                            />
-                        </div>
-                    )}
-                    <div className="mb-4 md:col-span-2">
-                        <label
-                            className="block text-gray-700 text-sm font-bold mb-2"
-                            htmlFor="message"
-                        >
-                            Mensaje
-                        </label>
-                        <textarea
-                            className="shadow appearance-none resize-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="message"
-                            required
-                            value={data.message}
-                            onChange={(e) => setData({ ...data, message: e.target.value })}
-                            placeholder="Mensaje"
-                            rows={4}
-                        />
-                    </div>
-                    <div className="md:col-start-2">
-                        <button
-                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
-                            type="submit"
-                        >
-                            Enviar
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </motion.section>
+            {content}
+        </motion.div>
+    ) : (
+        content
     );
 };
 

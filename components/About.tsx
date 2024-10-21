@@ -2,34 +2,93 @@
 import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
+import { FaRocket, FaUsers, FaLightbulb } from 'react-icons/fa';
 
 const About: React.FC = () => {
     const [ref, inView] = useInView({
         triggerOnce: true,
-        threshold: 0.08,
+        threshold: 0.1,
     });
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                delayChildren: 0.3,
+                staggerChildren: 0.2,
+            },
+        },
+    };
+
+    const itemVariants = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+        },
+    };
 
     return (
         <motion.section
             ref={ref}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 50 }}
-            transition={{ duration: 0.6}}
-            className="flex flex-col items-center pb-8"
+            variants={containerVariants}
+            initial="hidden"
+            animate={inView ? 'visible' : 'hidden'}
+            className="py-16"
         >
-            <h2 className="text-2xl font-bold mb-4 text-center">Sobre nosotros</h2>
-            <div className="flex flex-col md:flex-row items-center px-4 md:px-8 lg:px-16 relative max-w-7xl">
-                <div className="mt-2 md:relative md:mr-[-50px] md:bg-gray-100 rounded-tr-3xl p-4">
-                    <p className="text-lg">
-                        En numisoft, nos dedicamos a desarrollar soluciones de software que
-                        transforman negocios. Nuestro objetivo es generar un impacto positivo,
-                        ayudando a nuestros clientes a optimizar sus procesos, reducir tiempos y
-                        atraer más clientes. Con un equipo apasionado y experimentado, nos
-                        comprometemos a impulsar el crecimiento y la eficiencia de cada negocio
-                        mediante la tecnología.
-                    </p>
+            <div className="container mx-auto px-4">
+                <motion.h2
+                    variants={itemVariants}
+                    className="text-3xl md:text-4xl font-bold mb-8 text-center text-blue-800"
+                >
+                    Sobre Numisoft
+                </motion.h2>
+                <div className="flex flex-col md:flex-row items-center justify-between">
+                    <motion.div variants={itemVariants} className="md:w-1/2 mb-8 md:mb-0">
+                        <Image
+                            src="/about.svg"
+                            width={500}
+                            height={500}
+                            alt="Sobre Numisoft"
+                            className="rounded-lg shadow-lg"
+                        />
+                    </motion.div>
+                    <motion.div variants={itemVariants} className="md:w-1/2 md:pl-8">
+                        <p className="text-lg mb-6 text-gray-700">
+                            En Numisoft, nos dedicamos a desarrollar soluciones de software
+                            innovadoras que transforman negocios. Nuestro objetivo es generar un
+                            impacto positivo, ayudando a nuestros clientes a optimizar sus procesos,
+                            reducir tiempos y atraer más clientes.
+                        </p>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <motion.div
+                                variants={itemVariants}
+                                className="flex flex-col items-center text-center"
+                            >
+                                <FaRocket className="text-4xl text-blue-600 mb-2" />
+                                <h3 className="font-semibold mb-1">Innovación</h3>
+                                <p className="text-sm text-gray-600">Soluciones de vanguardia</p>
+                            </motion.div>
+                            <motion.div
+                                variants={itemVariants}
+                                className="flex flex-col items-center text-center"
+                            >
+                                <FaUsers className="text-4xl text-blue-600 mb-2" />
+                                <h3 className="font-semibold mb-1">Equipo Experto</h3>
+                                <p className="text-sm text-gray-600">Profesionales apasionados</p>
+                            </motion.div>
+                            <motion.div
+                                variants={itemVariants}
+                                className="flex flex-col items-center text-center"
+                            >
+                                <FaLightbulb className="text-4xl text-blue-600 mb-2" />
+                                <h3 className="font-semibold mb-1">Soluciones a Medida</h3>
+                                <p className="text-sm text-gray-600">Adaptadas a tu negocio</p>
+                            </motion.div>
+                        </div>
+                    </motion.div>
                 </div>
-                <Image src="/about.svg" width={400} height={400} alt="Sobre nosotros" />
             </div>
         </motion.section>
     );

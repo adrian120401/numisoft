@@ -1,92 +1,106 @@
 import { Service } from '@/types/Service';
+import { FaCheckCircle } from 'react-icons/fa';
 
-const ContentComponent = ({ children }: { children: React.ReactNode }) => (
-    <div className="p-4 bg-gray-100 rounded-lg shadow-md">{children}</div>
+const ContentComponent = ({
+    title,
+    items,
+    benefits,
+}: {
+    title: string;
+    items: string[];
+    benefits: string[];
+}) => (
+    <div className="text-sm">
+        <h3 className="text-lg font-semibold mb-3 text-blue-700">{title}</h3>
+        <ul className="space-y-2 mb-4">
+            {items.map((item, index) => (
+                <li key={index} className="flex items-start">
+                    <FaCheckCircle className="text-green-500 mt-1 mr-2 flex-shrink-0" />
+                    <span>{item}</span>
+                </li>
+            ))}
+        </ul>
+        <h4 className="text-md font-semibold mb-2 text-blue-600">Beneficios adicionales:</h4>
+        <ul className="space-y-2">
+            {benefits.map((benefit, index) => (
+                <li key={index} className="flex items-start">
+                    <FaCheckCircle className="text-green-500 mt-1 mr-2 flex-shrink-0" />
+                    <span>{benefit}</span>
+                </li>
+            ))}
+        </ul>
+    </div>
 );
 
 const WebContent = () => (
-    <ContentComponent>
-        <h3 className="text-lg font-semibold mb-2">Nuestro enfoque incluye:</h3>
-        <ul className="list-disc pl-5 mb-4">
-            <li>
-                Diseño Responsive: Aseguramos que tu sitio web se vea y funcione perfectamente en
-                cualquier dispositivo.
-            </li>
-            <li>
-                Funcionalidad Intuitiva: Diseñamos interfaces fáciles de usar que guían a los
-                usuarios hacia la información que buscan.
-            </li>
-            <li>
-                Optimización SEO: Implementamos técnicas de SEO para mejorar la visibilidad de tu
-                sitio en los motores de búsqueda.
-            </li>
-        </ul>
-        <h4 className="text-md font-semibold mb-2">Características adicionales:</h4>
-        <ul className="list-disc pl-5 mb-4">
-            <li>Integración con plataformas de e-commerce</li>
-            <li>Sistemas de gestión de contenido (CMS) personalizados</li>
-            <li>Implementación de seguridad avanzada</li>
-            <li>Soporte y mantenimiento continuo</li>
-        </ul>
-    </ContentComponent>
+    <ContentComponent
+        title="Nuestro enfoque incluye:"
+        items={[
+            'Diseño Responsive: Sitios web perfectos en cualquier dispositivo.',
+            'Funcionalidad Intuitiva: Interfaces que guían a los usuarios eficazmente.',
+            'Optimización SEO: Mejora la visibilidad en motores de búsqueda.',
+        ]}
+        benefits={[
+            'Integración con plataformas de e-commerce',
+            'CMS personalizados para gestión de contenido',
+            'Implementación de seguridad avanzada',
+            'Soporte y mantenimiento continuo',
+        ]}
+    />
 );
 
 const BusinessContent = () => (
-    <ContentComponent>
-        <h3 className="text-lg font-semibold mb-2">Nuestras soluciones empresariales incluyen:</h3>
-        <ul className="list-disc pl-5 mb-4">
-            <li>Sistemas de gestión: ERP, CRM, y otros sistemas personalizados para optimizar tus operaciones.</li>
-            <li>Aplicaciones móviles empresariales: Herramientas que permiten a tus empleados trabajar de manera más eficiente, incluso en movimiento.</li>
-            <li>Integración de datos: Conectamos tus diferentes sistemas para que compartan información de manera fluida.</li>
-        </ul>
-        <h4 className="text-md font-semibold mb-2">Beneficios adicionales:</h4>
-        <ul className="list-disc pl-5 mb-4">
-            <li>Mejora de la eficiencia operativa: Automatización de procesos repetitivos para ahorrar tiempo y recursos.</li>
-            <li>Aumento de la productividad: Herramientas diseñadas para facilitar el trabajo diario de tus empleados.</li>
-            <li>Toma de decisiones informadas: Análisis de datos y reportes que proporcionan información valiosa.</li>
-        </ul>
-    </ContentComponent>
+    <ContentComponent
+        title="Nuestras soluciones empresariales incluyen:"
+        items={[
+            'Sistemas de gestión: ERP, CRM y sistemas personalizados.',
+            'Aplicaciones móviles empresariales para eficiencia en movimiento.',
+            'Integración de datos para flujo de información sin problemas.',
+        ]}
+        benefits={[
+            'Mejora de la eficiencia operativa mediante automatización',
+            'Aumento de la productividad con herramientas optimizadas',
+            'Toma de decisiones informadas con análisis de datos avanzados',
+        ]}
+    />
 );
 
 const MobileContent = () => (
-    <ContentComponent>
-        <h3 className="text-lg font-semibold mb-2">Nuestro proceso incluye:</h3>
-        <ul className="list-disc pl-5 mb-4">
-            <li>Diseño centrado en el usuario: Interfaces intuitivas y atractivas que encantan a los usuarios.</li>
-            <li>Desarrollo nativo y multiplataforma: Aplicaciones que aprovechan al máximo las capacidades de cada plataforma.</li>
-            <li>Pruebas exhaustivas: Aseguramos la calidad y el rendimiento de tu aplicación a través de pruebas rigurosas.</li>
-        </ul>
-        <h4 className="text-md font-semibold mb-2">Beneficios adicionales:</h4>
-        <ul className="list-disc pl-5 mb-4">
-            <li>Experiencia de usuario excepcional: Interfaces diseñadas para ser atractivas y fáciles de usar.</li>
-            <li>Alto rendimiento: Aplicaciones rápidas y eficientes.</li>
-            <li>Compatibilidad multiplataforma: Desarrollamos aplicaciones que funcionan sin problemas en iOS y Android.</li>
-        </ul>
-    </ContentComponent>
+    <ContentComponent
+        title="Nuestro proceso incluye:"
+        items={[
+            'Diseño centrado en el usuario: Interfaces intuitivas y atractivas.',
+            'Desarrollo nativo y multiplataforma para máximo rendimiento.',
+            'Pruebas exhaustivas para garantizar calidad y rendimiento.',
+        ]}
+        benefits={[
+            'Experiencia de usuario excepcional con interfaces atractivas',
+            'Alto rendimiento: Aplicaciones rápidas y eficientes',
+            'Compatibilidad multiplataforma: Funcionamiento perfecto en iOS y Android',
+        ]}
+    />
 );
 
 export const services: Service[] = [
     {
-        title: 'Páginas web',
+        title: 'Páginas Web Impactantes',
         description:
-            'Creamos sitios web personalizados y optimizados que reflejan la identidad de tu marca y mejoran la experiencia del usuario. Nuestro enfoque se centra en el diseño responsive, la funcionalidad intuitiva y la optimización SEO para asegurar que tu presencia en línea sea atractiva y efectiva.',
+            'Diseñamos y desarrollamos sitios web que no solo se ven increíbles, sino que también impulsan el crecimiento de tu negocio.',
         icon: '/services/web.svg',
         content: <WebContent />,
     },
     {
-        title: 'Soluciones Empresariales',
+        title: 'Soluciones Empresariales Potentes',
         description:
-            'Desarrollamos software a medida para satisfacer las necesidades específicas de tu negocio. Desde sistemas de gestión hasta aplicaciones móviles, nuestras soluciones empresariales están diseñadas para mejorar la eficiencia operativa, aumentar la productividad y facilitar la toma de decisiones informadas.',
+            'Creamos software a medida que optimiza tus operaciones, aumenta la productividad y te da una ventaja competitiva.',
         icon: '/services/business.svg',
         content: <BusinessContent />,
     },
     {
-        title: 'Aplicaciones Móviles',
+        title: 'Aplicaciones Móviles Innovadoras',
         description:
-            'Creamos aplicaciones móviles nativas e híbridas que ofrecen una experiencia de usuario excepcional en dispositivos iOS y Android. Nuestro equipo de desarrolladores de aplicaciones móviles trabaja en estrecha colaboración contigo para garantizar que tu aplicación cumpla con tus expectativas y las de tus usuarios.',
+            'Desarrollamos apps móviles que cautivan a tus usuarios y llevan tu negocio al siguiente nivel en la era digital.',
         icon: '/services/apps.svg',
         content: <MobileContent />,
     },
 ];
-
-
